@@ -1,12 +1,14 @@
 {
   "name": "pradella-estudos-contatooh",
   "version": "0.0.1",
-  "private": true,
+  "description": "",
+  "main": "server.js",
   "scripts": {
-    "start": "node app.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "author": "Lucas Pradella",
+  "license": "ISC",
   "dependencies": {
-    "express": "3.2.6",
-    "ejs": "*"
+    "express": "^4.14.0"
   }
 }
