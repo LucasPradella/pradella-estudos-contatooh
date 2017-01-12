@@ -1,5 +1,6 @@
 // config/express.js
 var express = require('express');
+var home = require('../app/router/home');
 
 module.exports = function() {
 	var app = express();
@@ -14,5 +15,7 @@ module.exports = function() {
 	app.set('view engine','ejs')
 	app.set('views','./app/views')
 	
+	
+	home(app);
 	return app;
 };
