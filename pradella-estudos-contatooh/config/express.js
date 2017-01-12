@@ -1,6 +1,6 @@
 // config/express.js
 var express = require('express');
-var home = require('../app/router/home');
+var home = require('../app/routes/home');
 
 module.exports = function() {
 	var app = express();
