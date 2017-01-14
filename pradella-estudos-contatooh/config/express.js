@@ -1,9 +1,6 @@
 // config/express.js
 var express = require('express');
-var load = require('express-load');
-
-// comentario 1: removemos essa variavel de ambiente, quando comecamos a usar express load
-//var home = require('../app/routes/home');
+var home = require('../app/routes/home');
 
 module.exports = function() {
 	var app = express();
@@ -19,10 +16,6 @@ module.exports = function() {
 	app.set('views','./app/views')
 	
 	
-
-	load('models',{cwd: 'app'})
-			.then('controllers')
-			.then('routers')
-			.into(app)
+	home(app);
 	return app;
 };
