@@ -7,4 +7,6 @@ module.exports = function(){
 		res.render('index', {nome:'Express - Lucas Emilio da Silva Pradella'});
 	};
 	return controller;
+	
+	
 }
