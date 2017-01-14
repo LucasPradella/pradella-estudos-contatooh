@@ -1,5 +1,6 @@
 // config/express.js
 var express = require('express');
+var bodyParser = require('body-parser')
 var load = require('express-load')
 
 /*comentario 1
@@ -19,8 +20,13 @@ module.exports = function() {
 	app.set('view engine','ejs')
 	app.set('views','./app/views')
 	
+	//middleware body-parse
+	app.set(bodyParser.urlencoded({extended: true}));
+	app.use(bodyParser.json());
+	app.use(require('method-override')());
 	
 	
+		
 	
 	load('models',{cwd:'app'})
 			.then('controllers')
@@ -31,5 +37,7 @@ module.exports = function() {
 /* Veja comentario 1
  * 
  * 	home(app);
-*/	return app;
+*/	
+	
+	return app;
 };

@@ -3,4 +3,4 @@ npm install express-load --save
 
 
 importando method override e body parser
-npm install body-parser method-overrride --save
+npm install body-parser method-override --save
