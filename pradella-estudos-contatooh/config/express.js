@@ -1,6 +1,10 @@
 // config/express.js
 var express = require('express');
-var home = require('../app/routes/home');
+var load = require('express-load')
+
+/*comentario 1
+ * liha comentada quando comecamos a utilizar express load
+ * var home = require('../app/routes/home');*/
 
 module.exports = function() {
 	var app = express();
@@ -16,6 +20,16 @@ module.exports = function() {
 	app.set('views','./app/views')
 	
 	
-	home(app);
-	return app;
+	
+	
+	load('models',{cwd:'app'})
+			.then('controllers')
+			.then('routes')
+			.into(app);
+
+	
+/* Veja comentario 1
+ * 
+ * 	home(app);
+*/	return app;
 };
