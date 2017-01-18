@@ -1,6 +1,11 @@
+importando express
+npm install express --save
+
 importando express load
 npm install express-load --save
 
-
 importando method override e body parser
 npm install body-parser method-override --save
+
+importando ejs
+npm install ejs
