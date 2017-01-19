@@ -9,3 +9,11 @@ npm install body-parser method-override --save
 
 importando ejs
 npm install ejs
+
+instalando bower
+npm install bower -g
+
+
+#importando dependencias usando bower
+importando angular
+bower install angular --save

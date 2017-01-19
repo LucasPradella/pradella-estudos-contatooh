@@ -9,8 +9,10 @@
   "author": "Lucas Pradella",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.16.0",
     "ejs": "^2.5.5",
     "express": "^4.14.0",
-    "express-load": "^1.1.15"
+    "express-load": "^1.1.15",
+    "method-override": "^2.3.7"
   }
 }
