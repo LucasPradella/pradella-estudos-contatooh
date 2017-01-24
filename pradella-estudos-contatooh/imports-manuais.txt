@@ -17,3 +17,6 @@ npm install bower -g
 #importando dependencias usando bower
 importando angular
 bower install angular --save
+
+importando ngRouters
+bower install angular-route --save
