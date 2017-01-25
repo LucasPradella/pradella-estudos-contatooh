@@ -22,6 +22,8 @@ angular.module('contatooh').controller('ContatosController',
 				    "nome":"Contato JavaScript",
 				    "email":"javaScript@email.com.br"
 				}
-			]
+			];
+			
+			$scope.filtro ='';
 	
 });
