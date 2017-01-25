@@ -13,9 +13,9 @@
 			<th>E-mail</th>
 			<th class="text-center">Acao</th>
 		</tr>
-		<tr>
-			<td><a>Contato</a></td>
-			<td>contato@email.com.br</td>
+		<tr ng-repeat="contato in contatos">
+			<td><a>{{contato.nome}}</a></td>
+			<td>{{contato.email}}</td>
 			<td class="text-center">
 				<button class="btn-warning">Remover</button>
 			</td>
