@@ -23,3 +23,7 @@ bower install angular-route --save
 
 importando bootstrap
 bower install bootstrap --save
+
+importando angular-resource
+bower install angular-resource --save
+
