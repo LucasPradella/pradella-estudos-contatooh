@@ -1,6 +1,7 @@
 <div class="jumbotron">
 	<h1 class="text-center">Bem-vindo ao Contatooh</h1>
 </div>
+<p ng-show="mensagem.texto">{{mensagem.texto}}</p>
 
 <button class="btn btn-primary" ng-click="incrementa()">Novo</button>
 <input ng-model="filtro" type="search" placeholder="parte do nome">
