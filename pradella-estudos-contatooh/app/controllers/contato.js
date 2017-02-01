@@ -7,6 +7,8 @@
 	 {_id : 3, nome : "nodejs", email : "nodejs@pradella.com.br"},
 	 {_id : 4, nome : "javaScript", email : "JavaScript@pradella.com.br"}
  ]
+ 
+ var ID_CONTATO_INC = 3;
 
 
 module.exports = function(){
@@ -35,6 +37,35 @@ module.exports = function(){
 			});
 			res.status(204).end();
 	};
+	
+	
+	controller.salvaContatos = function(req, res) {
+		var contato = req.body;
+		
+		contato = contato._id ? atualiza(contato) : adiciona(contato);
+		res.json(contato);
+	
+	};
+	
+	function adiciona(contatoNovo){
+		contatoNovo._id = ++ID_CONTATO_INC;
+		contatos.push(contatoNovo);
+		return contatoNovo;
+	};
+	
+	function atualiza(contatoAlterar){
+		
+			contato = contatos.map(function(contato){
+				if(contato.id == contatoAlterar._id){
+					contato = contatoAlterar
+				}
+				return contato;
+			});
+		
+		
+		
+		return contatoAlterar;
+	}
 	
 	return controller;
   };
