@@ -1,12 +1,11 @@
 angular.module('contatooh').controller('ContatoController',
-		function($scope, $routeParams) {
+		function($scope, $routeParams, $resource) {
 			console.log($routeParams.contatoId);
-
+			$scope.mensagem = {texto: ''};
+			
 			var Contato = $resource('/contatos/:id');
 
-			Contato.get({
-				id : $routeParams.contatoId
-			}, function(contato) {
+			Contato.get({id : $routeParams.contatoId}, function(contato) {
 				$scope.contato = contato;
 			}, function(erro) {
 				$scope.mensagem = {

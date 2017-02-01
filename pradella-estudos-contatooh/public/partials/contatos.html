@@ -3,7 +3,7 @@
 </div>
 <p ng-show="mensagem.texto">{{mensagem.texto}}</p>
 
-<button class="btn btn-primary" ng-click="incrementa()">Novo</button>
+<a ng-href="#!/contato"class="btn btn-primary" ng-click="incrementa()">Novo</a>
 <input ng-model="filtro" type="search" placeholder="parte do nome">
 <p ng-show="contatos.length" >Contatos cadastrados: {{contatos.length}}</p>
 <p class="text-inf" ng-hide="contatos.length" >Nao ha contatos cadastrados</p>
