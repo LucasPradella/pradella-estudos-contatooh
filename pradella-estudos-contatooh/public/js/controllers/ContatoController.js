@@ -1,9 +1,9 @@
 angular.module('contatooh').controller('ContatoController',
-		function($scope, $routeParams, $resource) {
+		function($scope, $routeParams, Contato) {
 			console.log($routeParams.contatoId);
 
 			
-			var Contato = $resource('/contatos/:id');
+/*			var Contato = $resource('/contatos/:id'); deletado quando iniciamos a utilizacao do contatoService*/
 
 			Contato.get({id : $routeParams.contatoId}, function(contato) {
 				$scope.contato = contato;

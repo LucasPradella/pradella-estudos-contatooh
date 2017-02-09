@@ -1,5 +1,5 @@
 angular.module('contatooh').controller('ContatosController',
-		function($scope, $resource) {
+		function($scope, Contato) {
 
 			$scope.contatos = [];
 			
@@ -13,8 +13,8 @@ angular.module('contatooh').controller('ContatosController',
 */
 			$scope.filtro = '';
 
-
-			var Contato = $resource('/contatos/:id');
+/* deletado quando iniciamos a utilizacao do contatoService*
+			var Contato = $resource('/contatos/:id');*/
 		
 			function buscaContatos(){
 					Contato.query(function(contatos) {
