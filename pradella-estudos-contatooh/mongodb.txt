@@ -6,7 +6,7 @@ para iniciar o shell do mongodb
 mongo --port 27017 --host localhost
 
 
-s
+
 comandos Mongodb
 
 lista todos os bancos da instancia
@@ -54,6 +54,7 @@ inserir um contato com mais de um email
 -> var contatoComEmails ={"nome": "Contato com emails","emails": ["contato@email.com.br", "pessoal@empresa.com.br"]}
 -> db.contatos.insert(contatoComEmails)
 
+
 Query selectors
 usando $OR, um parametro ou outro
 -> db.contatos.find({"$or":[{"email":"cont2@empresa.com.br"},{"nome":"Contato 1 Mongo"}]);
@@ -61,7 +62,62 @@ usando $NE, obter todos os contatos que não contenham como e-mail
 -> db.contatos.find({"email" : {"$ne" : "cont2@empresa.com.br"}});
 
 
+Indexando documentos
+criar um index para email
+-> db.contatos.ensureIndex({ "email" : 1 })
 
+para listar todos os indices
+-> db.contatos.getIndexes()
+
+para apagar indice 
+-> db.contatos.dropIndex('email_1')
+
+para criar um indice unico 
+-> db.contatos.ensureIndex( { email: 1 }, { unique: true } )
+
+
+Retornar a parcial de um documento
+find simples
+-> db.contatos.find({}, { "nome" : 1})
+
+find full simples mas dessa vez ignorando o _id
+-> db.contatos.find({}, { "nome" : 1, _id : 0 })
+
+removendo documentos
+remove
+-> db.contatos.remove({ "email" : "cont2@empresa.com.br" })
+
+para remover todos os documentos de uma coleção 
+-> db.contatos.remove()
+
+
+Atualizando documentos
+update
+-> var criterio = { "email" : "cont3@empresa.com.br" };
+-> var contato = db.contatos.findOne(criterio);
+-> contato.nome = "Nome alterado";
+-> db.contatos.update(criterio, contato);
+
+
+Realizando upserts
+caso realize uma atualização, mas se o documento nao existir, voce queira inserir
+-> var contato4 = { "nome" : "Contato 4 mongo","email" : "cont4@empresa.com.br" }
+-> db.contatos.update({ "nome" : /4/ }, contato4, true);
+
+
+modificar apenas o email de um contato
+-> db.contatos.update({ "nome" : /3/ },{ "email" : "somudei@email.com" }) (fazendo isso ele apaga todas as outras informaçoes, deixando apenas o email e o mesmo _id)
+
+usando $set, altera apenas o que foi especificado
+-> db.contatos.update({ "email" : "somudei@email.com"},{"$set" :{"nome" : "Mais uma alteração"}})
+
+
+Documentos embutidos
+siga essa sequencia 
+-> var contato = db.contatos.findOne({ "email" : /somudei/ })
+-> var emergencia = db.contatos.findOne({ "email" : /cont3/})
+-> contato.emergencia = emergencia;
+-> db.contatos.update({ "_id": contato._id}, contato);
 
 
 
