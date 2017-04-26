@@ -14,6 +14,12 @@ instalando bower
 npm install bower -g
 
 
+driver mongo
+npm install mongodb --save
+
+mongoose
+npm install mongoose --save
+
 #importando dependencias usando bower
 importando angular
 bower install angular --save
@@ -26,4 +32,5 @@ bower install bootstrap --save
 
 importando angular-resource
 bower install angular-resource --save
+
 
