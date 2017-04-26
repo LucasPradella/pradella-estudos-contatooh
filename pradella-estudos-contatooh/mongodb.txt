@@ -43,13 +43,22 @@ podemos utilizar expressão regular
 -> var contatos = db.contatos.find(criterio)
 -> contatos
 
+contar quandos documentos temos cadastrado na coleção 
+-> db.contatos.count()
+
+contar quandos documentos temos cadastrado na coleção, usando expressão regular
+-> db.contatos.count({ "nome" : /to 2/i })
 
 
+inserir um contato com mais de um email
+-> var contatoComEmails ={"nome": "Contato com emails","emails": ["contato@email.com.br", "pessoal@empresa.com.br"]}
+-> db.contatos.insert(contatoComEmails)
 
-
-
-
-
+Query selectors
+usando $OR, um parametro ou outro
+-> db.contatos.find({"$or":[{"email":"cont2@empresa.com.br"},{"nome":"Contato 1 Mongo"}]);
+usando $NE, obter todos os contatos que não contenham como e-mail
+-> db.contatos.find({"email" : {"$ne" : "cont2@empresa.com.br"}});
 
 
 
