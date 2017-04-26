@@ -4,3 +4,56 @@ https://github.com/LucasPradella/ubuntu-dicas/blob/master/MongoDB
 
 para iniciar o shell do mongodb
 mongo --port 27017 --host localhost
+
+
+s
+comandos Mongodb
+
+lista todos os bancos da instancia
+-> show dbs
+
+cria banco de dados se ainda nao existir, se existir ele abre
+-> use contatooh
+
+incluir um documento via shell (no momento de incluir o doc, vamos tabm adicionar a collection "contatos")
+-> var contato = { "nome" : "Lucas Pradella" }
+-> db.contatos.insert(contato)
+
+mostrar todas as coleções de uma base
+-> show collections
+
+listar os documentos
+-> db.contatos.find();
+
+
+apagar o bando de dados
+-> db.dropDatabase();
+
+selecionar apenas o primeiro documento da coleção 
+-> db.contatos.findOne();
+
+quando queremos fazer um find com criterio
+-> var criterio = { "email" : "cont2@empresa.com.br"}
+-> var contato = db.contatos.find(criterio)
+-> contato
+
+para encontrar contatos que tenha o valor tato (algo parecido no banco relacional seria o like), 
+podemos utilizar expressão regular
+-> var criterio = { "nome" : /tato/i }
+-> var contatos = db.contatos.find(criterio)
+-> contatos
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
