@@ -1,4 +1,6 @@
 var mongoose = require('mongoose');
+//isso abilita a visualização no console
+mongoose.set('debug',true);
 module.exports = function(uri) {
 //   mongoose.connect(uri); linha de baixo foi adicionada, caso queira abrir um pool de conexão mair, o default é 5
 	mongoose.connect(uri, { server: { poolSize: 15 }});
