@@ -1,0 +1,6 @@
+Informamações sobre a instalação do mongodb, acesse 
+https://github.com/LucasPradella/ubuntu-dicas/blob/master/MongoDB
+
+
+para iniciar o shell do mongodb
+mongo --port 27017 --host localhost
