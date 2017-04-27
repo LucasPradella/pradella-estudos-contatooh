@@ -1,4 +1,13 @@
 //Rotas
+function verificaAutenticacao(req, res, next) {
+	if (req.isAuthenticated()) {
+		return next();
+	} else {
+		res.status('401').json('Não autorizado');
+	}
+}
+
+
 module.exports = function(app){
 	var controller = app.controllers.contato;
 	//app.get('/contatos', controller.listaContatos);
@@ -8,11 +17,11 @@ module.exports = function(app){
 	
 	
 	app.route('/contatos')
-			.get(controller.listaContatos)
-			.post(controller.salvaContatos);
+			.get(verificaAutenticacao, controller.listaContatos)
+			.post(verificaAutenticacao, controller.salvaContatos);
 		
 	
 	app.route('/contatos/:id')
-			.get(controller.obtemContato)
-			.delete(controller.removeContato);
+			.get(verificaAutenticacao, controller.obtemContato)
+			.delete(verificaAutenticacao, controller.removeContato);
 }

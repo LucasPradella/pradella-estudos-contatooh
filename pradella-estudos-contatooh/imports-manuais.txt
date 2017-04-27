@@ -13,12 +13,23 @@ npm install ejs
 instalando bower
 npm install bower -g
 
-
 driver mongo
 npm install mongodb --save
 
 mongoose
 npm install mongoose --save
+
+passport responsavel pela autenticação, nesse caso precisamos executar o npm, na pasta raiz, local do arquivo package.json
+npm install passport --save
+
+passport para o github
+npm install passport-github --save
+
+módulos express-session e o cookie-parser
+npm install express-session cookie-parser --save
+
+plugin mongoose
+npm install mongoose-findorcreate --save
 
 #importando dependencias usando bower
 importando angular
